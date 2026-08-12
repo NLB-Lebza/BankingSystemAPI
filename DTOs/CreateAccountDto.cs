@@ -1,11 +1,10 @@
-﻿namespace BankingSystem.DTOs
-{
-    public class CreateCustomerDto
-    {
-        public string CustomerId { get; set; }
+﻿namespace BankingSystemAPI.DTOs;
 
-        public string AccountType { get; set; }
+public class CreateCustomerDto
+{ 
+    public string CustomerId { get; set; }
 
-        public decimal InitialDeposit { get; set; }
-    }
+   public string AccountType { get; set; }
+
+    public decimal InitialDeposit { get; set; }
 }

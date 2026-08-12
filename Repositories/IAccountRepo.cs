@@ -1,11 +1,13 @@
 ﻿using BankingSystemAPI.Models;
-namespace BankingSystemAPI.Repositories
+namespace BankingSystemAPI.Repositories;
+
+public interface IAccountRepo
 {
-    public interface IAccountRepo
-    {
-       Task<BankAccount?> GetByAccountNumberAsync(string accountNumber);
-        Task<BankAccount>AddAsync(BankAccount account);
-        Task<IEnumerable<Transaction>>GetTransactionAsync(string accountNumber);
-        Task saveChangesAsync();
-    }
+    Task<BankAccount> AddAsync(BankAccount account);
+    Task<BankAccount?> GetByAccountNumberAsync(string accountNumber);
+
+
+    Task<IEnumerable<Transaction>> GetTransactionsAsync(
+        string accountNumber);
+    Task SaveChangesAsync();
 }

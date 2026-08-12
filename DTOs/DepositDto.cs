@@ -1,6 +1,7 @@
-﻿namespace BankingSystem.DTOs
+﻿namespace BankingSystemAPI.DTOs;
 
-    public class DepositDto
+
+public class DepositDto
 {
     public string AccountNumber { get; set; }
 

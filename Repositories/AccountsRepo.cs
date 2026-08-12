@@ -7,24 +7,32 @@ namespace BankingSystemAPI.Repositories;
 
 public class AccountsRepo : IAccountRepo
 {
-    private readonly BankingSystemAPI _context;
+    private readonly BankingDbContext _context;
 
-    public AccountsRepo(BankingSystemAPI context)
-    {
-        this._context = context;
-    }
+    public AccountsRepo(BankingDbContext context)
+    { _context = context; }
 
+   
     public async Task<BankAccount?> GetByAccountNumberAsync(string accountNumber)
     {
-        return await _context.BankAccount
+        return await _context.BankAccounts
             .Include(a => a.Customer)
             .FirstOrDefaultAsync(a => a.AccountNumber == accountNumber);
     }
-    public async Task<IEnumerable<Transactions>> GetTransactionsAsync(string accountNumber)
+
+    public async Task<BankAccount> AddAsync(BankAccount account)
+    {
+        _context.BankAccounts.Add(account);
+        await _context.SaveChangesAsync();
+        return account;
+    }
+
+
+    public async Task<IEnumerable<Transaction>> GetTransactionsAsync(string accountNumber)
     {
         return await _context.Transactions
-            .Where(t => t.BankAccount.AccountNumber == accountNumber)
-            .OrderbyDescending(t => t.CreatedAt)
+            .Where(t => t.BankAccount!.AccountNumber == accountNumber)
+            .OrderByDescending(t => t.CreatedAt)
             .ToListAsync();
 
     }

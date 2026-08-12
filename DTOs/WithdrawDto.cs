@@ -1,5 +1,5 @@
-﻿namespace BankingSytem.DTOs
-{
+﻿namespace BankingSystemAPI.DTOs;
+
     public class WithdrawDto
     {
       public string FromAccountNumber { get; set; }
@@ -8,4 +8,3 @@
 
         public decimal Amount { get; set; }
     }
-}
