@@ -2,9 +2,9 @@
 
     public class WithdrawDto
     {
-      public string FromAccountNumber { get; set; }
+    
 
-        public string ToAccountNumber { get; set; }
+        public string AccountNumber { get; set; }
 
         public decimal Amount { get; set; }
     }

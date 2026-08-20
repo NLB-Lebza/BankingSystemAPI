@@ -1,6 +1,6 @@
 ﻿namespace BankingSystemAPI.DTOs;
 
-public class CreateCustomerDto
+public class CreateAccountDto
 { 
     public string CustomerId { get; set; }
 

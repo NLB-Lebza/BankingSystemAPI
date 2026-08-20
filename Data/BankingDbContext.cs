@@ -23,7 +23,7 @@ public class BankingDbContext : DbContext
         //Email should be unique for each customer
         modelBuilder.Entity<Customer>()
             .HasIndex(c => c.Email)
-            .isUnique();
+            .IsUnique();
 
         //account number should be unique for each bank account
         modelBuilder.Entity<BankAccount>()
@@ -44,7 +44,7 @@ public class BankingDbContext : DbContext
             .HasOne(a => a.Customer)
             .WithMany(c => c.BankAccounts)
             .HasForeignKey(a => a.CustomerId)
-            .OnDelete(DeleteBehavior.Restricted);
+            .OnDelete(DeleteBehavior.Restrict);
 
 
         //Bank account can have many transactions, but each transaction belongs to one bank account
