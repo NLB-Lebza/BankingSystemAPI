@@ -2,7 +2,7 @@
 
 public class CreateAccountDto
 { 
-    public string CustomerId { get; set; }
+    public int CustomerId { get; set; }
 
    public string AccountType { get; set; }
 

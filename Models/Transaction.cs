@@ -4,11 +4,11 @@ public class Transaction
 {
     public int Id { get; set; }
 
-    public TansactionType Type { get; set; }
+    public TransactionType Type { get; set; }
 
     public decimal Amount { get; set; }
 
-    public string Description { get; set; }
+    public string Description { get; set; }= string.Empty;
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 

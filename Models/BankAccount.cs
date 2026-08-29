@@ -9,9 +9,9 @@
     //the navigation property to the Customer entity
     public Customer? Customer { get; set; }
 
-    public string AccountNumber { get; set; }
+    public string AccountNumber { get; set; } = string.Empty;
 
-        public string AccountType { get; set; }
+        public string AccountType { get; set; } = string.Empty;
 
         public decimal Balance { get; set; }
 
